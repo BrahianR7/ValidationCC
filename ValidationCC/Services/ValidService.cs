@@ -8,6 +8,8 @@ namespace ValidationCC.Services
 {
     public class ValidService: IValidService
     {
+        public static List<string> salida = new List<string>();
+
         public string Insert(string entrada)
         {
             char digito;
@@ -45,6 +47,8 @@ namespace ValidationCC.Services
                             calculo *= 3;
                         }
                         resultado += calculo;
+                        salida.Add(entrada);
+                        salida.Add(Convert.ToString(resultado));
                     }
                 }
             }
@@ -53,7 +57,9 @@ namespace ValidationCC.Services
 
         public string Query()
         {
-            string resultado = "inputValue: " + "\nnewInput: " ;
+            string newInput = salida[salida.Count -1];
+            string inputValue = salida[salida.Count -2];
+            string resultado = "inputValue: " + inputValue + "\nnewInput: " + newInput;
             return resultado;
         }
 

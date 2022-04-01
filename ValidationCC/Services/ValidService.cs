@@ -7,7 +7,6 @@ using ValidationCC.IServices;
 namespace ValidationCC.Services
 {
     public class ValidService: IValidService
-
     {
         public string Insert(string entrada)
         {
@@ -50,6 +49,12 @@ namespace ValidationCC.Services
                 }
             }
             return ("Stade: " + stade + ".\nMessage error: " + error + "\nResponse: " + resultado);
+        }
+
+        public string Query()
+        {
+            string resultado = "inputValue: " + "\nnewInput: " ;
+            return resultado;
         }
 
         public string Saludo(string nombre, int edad)

@@ -25,8 +25,7 @@ namespace ValidationCC.Controllers
             var respuesta =  _validService.Insert(entrada);
             return (respuesta);
         }
-
-
+        
         [Route("Saludo")]
         [HttpPost]
         public string Saludo(string nombre, int edad)
@@ -35,6 +34,7 @@ namespace ValidationCC.Controllers
             return respuesta;
         }
 
+        [Route("Query")]
         [HttpGet]
         public string Query()
         {

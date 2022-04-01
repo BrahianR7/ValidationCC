@@ -8,7 +8,7 @@ namespace ValidationCC.IServices
     public interface IValidService
     {
         public string Insert(string entrada);
-
-        public string Saludo(string nombre, int edad);
+        public string Query();
+        public string Saludo(string nombre, int edad);   
     }
 }

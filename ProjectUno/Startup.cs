@@ -6,15 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ProjectUno.IServices;
-using ProjectUno.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
-namespace ValidationCC
+namespace ProjectUno
 {
     public class Startup
     {
@@ -29,12 +26,10 @@ namespace ValidationCC
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddScoped<IValidService, ValidService>();
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ValidationCC", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProjectUno", Version = "v1" });
             });
         }
 
@@ -45,7 +40,7 @@ namespace ValidationCC
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ValidationCC v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProjectUno v1"));
             }
 
             app.UseRouting();

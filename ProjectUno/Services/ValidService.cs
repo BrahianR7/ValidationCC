@@ -118,25 +118,34 @@ namespace ProjectUno.Services
         public string Saludo(string nombre, int edad)
         {
             string caso = " ";
-            if (edad < 6)
+            try
             {
-                caso = " usted debería estar viendo Cartoon Network.";
+                switch (edad)
+                {
+                    case < 6:
+                        caso = " usted debería estar viendo Cartoon Network.";
+                        break;
+
+                    case > 5 and < 18:
+                        caso = " usted debe tener autorización de sus papás.";
+                        break;
+
+                    case > 17 and < 25:
+                        caso = " usted debería estar estudiando.";
+                        break;
+
+                    case > 24 and < 56:
+                        caso = " usted debería estar trabajando.";
+                        break;
+                    case > 55:
+                        caso = " usted debería estar descansando.";
+                        break;
+                }
             }
-            else if (edad > 5 && edad < 18)
+            catch (Exception)
             {
-                caso = " usted debe tener autorización de sus papás.";
-            }
-            else if (edad > 17 && edad < 25)
-            {
-                caso = " usted debería estar estudiando.";
-            }
-            else if (edad > 24 && edad < 56)
-            {
-                caso = " usted debería estar trabajando.";
-            }
-            else if (edad > 55)
-            {
-                caso = " usted debería estar descansando.";
+                return "Error, el valor ingresado es nulo o string.";
+                throw;
             }
             return "Hola " + nombre + caso;
         }

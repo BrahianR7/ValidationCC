@@ -1,14 +1,1 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ProjectUno.IServices
-{
-    public interface IValidService
-    {
-        public string Insert(string entrada);
-        public string Query();
-        public string Saludo(string nombre, int edad);   
-    }
-}
+﻿
